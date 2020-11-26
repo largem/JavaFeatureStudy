@@ -1,0 +1,3 @@
+module moduleapp {
+    requires testmodule;
+}
