@@ -1,13 +1,15 @@
 package com.study.java8.optional;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class StudyOptionalBasic {
 
-    public static void studyOptionalBasic() {
+    public static void study() {
         System.out.println(StudyOptionalBasic.class.getName());
-        final Optional<String> optionalWithValue = optionalIsForReturn(true);
+        Consumer<Object> blackhole = v -> {};
 
+        final Optional<String> optionalWithValue = optionalIsForReturn(true);
         final Optional<String> emptyOptional = optionalIsForReturn(false);
 
         // convert Optional value
@@ -25,14 +27,24 @@ public class StudyOptionalBasic {
             System.out.println(optionalWithValue.get());
         }
 
+        //throw exception when empty (error handling)
         try {
             emptyOptional.orElseThrow(() -> new RuntimeException("empty optional can not be handled"));
         }catch(Exception e) {
             System.out.println(e.getMessage());
         }
+
+        //filter
+        final String filteredValue = optionalWithValue.filter(v -> v.contains("a")).orElse("");
+        blackhole.accept(filteredValue);
+
+        //flatmap : map the optional to its value
+        final String valueFromFlatmap = optionalWithValue.flatMap(StudyOptionalBasic::optionalIsForReturn_fromNullable).orElse("");
+        blackhole.accept(valueFromFlatmap);
     }
 
     private static String calculateValue() {
+        //assume this take very long
         return "value from heavy calculation";
     }
 
@@ -44,3 +56,4 @@ public class StudyOptionalBasic {
         return Optional.ofNullable(input);      //create an optional from a nullable value
     }
 }
+
