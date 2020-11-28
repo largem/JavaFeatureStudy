@@ -1,5 +1,7 @@
 package com.study.java8.optional;
 
+import com.stufy.common.CommonUtil;
+
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -7,7 +9,6 @@ public class StudyOptionalBasic {
 
     public static void study() {
         System.out.println(StudyOptionalBasic.class.getName());
-        Consumer<Object> blackhole = v -> {};
 
         final Optional<String> optionalWithValue = optionalIsForReturn(true);
         final Optional<String> emptyOptional = optionalIsForReturn(false);
@@ -30,17 +31,17 @@ public class StudyOptionalBasic {
         //throw exception when empty (error handling)
         try {
             emptyOptional.orElseThrow(() -> new RuntimeException("empty optional can not be handled"));
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         //filter
         final String filteredValue = optionalWithValue.filter(v -> v.contains("a")).orElse("");
-        blackhole.accept(filteredValue);
+        CommonUtil.BLACK_HOLE.accept(filteredValue);
 
         //flatmap : map the optional to its value
         final String valueFromFlatmap = optionalWithValue.flatMap(StudyOptionalBasic::optionalIsForReturn_fromNullable).orElse("");
-        blackhole.accept(valueFromFlatmap);
+        CommonUtil.BLACK_HOLE.accept(valueFromFlatmap);
     }
 
     private static String calculateValue() {
