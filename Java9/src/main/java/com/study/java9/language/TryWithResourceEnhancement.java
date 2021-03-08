@@ -1,9 +1,10 @@
-package com.study.java9;
+package com.study.java9.language;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+//https://www.logicbig.com/tutorials/core-java-tutorial/java-9-changes/try-with-resource.html
 public class TryWithResourceEnhancement {
     public static void main(String[] args) throws IOException {
         final InputStream inputStream1 = getInputStream("something");
