@@ -20,6 +20,6 @@ public class StudyOptionalAdvanced {
         return opt
                 .filter(v -> v.equals("a"))
                 .map(v -> v + v)
-                .orElse(opt.map(v -> v + v+ v).orElse(""));
+                .orElse(opt.map(v -> v + v + v).orElse(""));
     }
 }

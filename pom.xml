@@ -31,13 +31,14 @@
     </build>
     <modules>
         <module>Java8</module>
-        <module>Java9</module>
+        <module>Java9ModuleSystem</module>
         <module>Java10</module>
         <module>Java11</module>
         <module>Java12</module>
         <module>Java13</module>
         <module>Java14</module>
         <module>Common</module>
+        <module>Java9</module>
     </modules>
 
 </project>

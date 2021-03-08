@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Java9</artifactId>
+    <artifactId>Java9Module</artifactId>
+    <packaging>pom</packaging>
 
     <build>
         <plugins>
@@ -23,4 +24,9 @@
         </plugins>
     </build>
 
+    <modules>
+        <module>TestModule</module>
+        <module>ModuleApp</module>
+        <module>UnnamedModule</module>
+    </modules>
 </project>
