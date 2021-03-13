@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Flow;
 import java.util.concurrent.SubmissionPublisher;
 
+//https://www.logicbig.com/tutorials/core-java-tutorial/java-9-changes/understanding-reactive-streams.html
 public class SubmissionPublisherExample {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(2);
