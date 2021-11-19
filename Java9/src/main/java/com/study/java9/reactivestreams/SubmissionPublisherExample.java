@@ -20,6 +20,7 @@ public class SubmissionPublisherExample {
         sb.submit("item 4");
         sb.submit("item 5");
 
+        sb.close();
         executor.shutdown();
     }
 }
