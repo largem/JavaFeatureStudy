@@ -14,7 +14,7 @@ public class MySubscriber implements Flow.Subscriber<String> {
     public void onSubscribe(Flow.Subscription subscription) {
         System.out.println(name + " onSubscribe: " + subscription);
         this.subscription = subscription;
-        subscription.request(2);
+        subscription.request(2);  // here, request LONG.MAX_VALUE, it will request everything to the end
     }
 
     @Override
